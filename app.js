@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-client.setConfig({ apiKey: "5d75db9407184f93c8b224794166b448-us21", server: "us21" });
+client.setConfig({ apiKey: "206a8ff756968994acfc69d724e1c555-us21", server: "us21" });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/signup.html");
 });
