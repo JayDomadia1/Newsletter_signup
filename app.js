@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-client.setConfig({ apiKey: "206a8ff756968994acfc69d724e1c555-us21", server: "us21" });
+client.setConfig({ apiKey: "9bcdbeb810e6016a3efa767ce67efea4-us21", server: "us21" });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/signup.html");
 });
@@ -38,7 +38,9 @@ app.post("/", (req, res) => {
         ],
       });
       console.log(response);
-      res.sendFile(__dirname + "/success.html");
+      if (response.errors.length > 0) {
+        res.sendFile(__dirname + "/failure.html");
+      } else res.sendFile(__dirname + "/success.html");
     } catch (err) {
       console.log(err);
       res.sendFile(__dirname + "/failure.html");
